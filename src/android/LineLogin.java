@@ -111,6 +111,7 @@ public class LineLogin extends CordovaPlugin {
                     channelId,
                     new LineAuthenticationParams.Builder()
                             .scopes(Arrays.asList(Scope.PROFILE, Scope.OPENID_CONNECT, Scope.OC_EMAIL))
+                            .botPrompt(LineAuthenticationParams.BotPrompt.aggressive)
                             .build()
             );
             this.cordova.startActivityForResult((CordovaPlugin) this, loginIntent, REQUEST_CODE);
