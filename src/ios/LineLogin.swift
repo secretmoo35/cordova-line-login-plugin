@@ -23,7 +23,9 @@ import LineSDK
     }
     
     func _login(_ command: CDVInvokedUrlCommand, options: LoginManagerOptions) {
-        LoginManager.shared.login(permissions: [.profile, .openID, .email], in: self.viewController, options: options) {
+        var parameters = LoginManager.Parameters()
+        parameters.botPromptStyle = .aggressive
+        LoginManager.shared.login(permissions: [.profile, .openID, .email], in: self.viewController, parameters: parameters) {
             result in
             switch result {
             case .success(let loginResult):
